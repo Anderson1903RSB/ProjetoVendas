@@ -64,6 +64,38 @@ namespace ProjetoVenda.repository
 
         }
 
+        public List<Product> listarPorPagina(int qtd, int pagina)
+        {
+            int offset = qtd * (pagina - 1);
+            using MySqlConnection connector = Database.GetConnection();
+            string sql = "SELECT * FROM produto LIMIT @limit OFFSET @offset";
+            using MySqlCommand cmd = new MySqlCommand(sql, connector);
+            cmd.Parameters.AddWithValue("@limit", qtd);
+            cmd.Parameters.AddWithValue("@offset", offset);
+            using var reader = cmd.ExecuteReader();
+
+
+            List<Product> list = new List<Product>();
+
+            while (reader.Read())
+
+            {
+
+                list.Add(map(reader));
+
+            }
+
+            return list;
+        }
+
+        public int quantidadeProdutos()
+        {
+
+            using MySqlConnection connector = Database.GetConnection();
+            string sql = "SELECT COUNT(*) FROM produto";
+            using MySqlCommand cmd = new MySqlCommand(sql, connector);
+            return Convert.ToInt32(cmd.ExecuteScalar());
+        }
         public bool atualizar(Product produto)
         {
             using MySqlConnection connector = Database.GetConnection();

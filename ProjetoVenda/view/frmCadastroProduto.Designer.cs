@@ -41,6 +41,9 @@
             label5 = new Label();
             btnExcluir = new Button();
             btnAtualizar = new Button();
+            btnAnterior = new Button();
+            btnProximo = new Button();
+            lblPaginas = new Label();
             ((System.ComponentModel.ISupportInitialize)txtQuantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
             SuspendLayout();
@@ -142,7 +145,7 @@
             dgvProdutos.Name = "dgvProdutos";
             dgvProdutos.ReadOnly = true;
             dgvProdutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProdutos.Size = new Size(743, 406);
+            dgvProdutos.Size = new Size(743, 328);
             dgvProdutos.TabIndex = 9;
             dgvProdutos.CellDoubleClick += dgvProdutos_CellDoubleClick;
             // 
@@ -183,12 +186,47 @@
             btnAtualizar.UseVisualStyleBackColor = true;
             btnAtualizar.Click += btnAtualizar_Click;
             // 
+            // btnAnterior
+            // 
+            btnAnterior.Font = new Font("Segoe UI", 12F);
+            btnAnterior.Location = new Point(3, 580);
+            btnAnterior.Name = "btnAnterior";
+            btnAnterior.Size = new Size(101, 52);
+            btnAnterior.TabIndex = 11;
+            btnAnterior.Text = "<Anterior";
+            btnAnterior.UseVisualStyleBackColor = true;
+            btnAnterior.Click += btnAnterior_Click;
+            // 
+            // btnProximo
+            // 
+            btnProximo.Font = new Font("Segoe UI", 12F);
+            btnProximo.Location = new Point(631, 576);
+            btnProximo.Name = "btnProximo";
+            btnProximo.Size = new Size(103, 52);
+            btnProximo.TabIndex = 12;
+            btnProximo.Text = "Proximo>";
+            btnProximo.UseVisualStyleBackColor = true;
+            btnProximo.Click += btnProximo_Click;
+            // 
+            // lblPaginas
+            // 
+            lblPaginas.Font = new Font("Segoe UI", 12F);
+            lblPaginas.Location = new Point(110, 595);
+            lblPaginas.Name = "lblPaginas";
+            lblPaginas.Size = new Size(515, 23);
+            lblPaginas.TabIndex = 13;
+            lblPaginas.Text = "Pagina 1 de 5";
+            lblPaginas.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // frmCadastroProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(746, 648);
+            Controls.Add(lblPaginas);
+            Controls.Add(btnProximo);
+            Controls.Add(btnAnterior);
             Controls.Add(btnExcluir);
             Controls.Add(btnAtualizar);
             Controls.Add(label5);
@@ -226,5 +264,8 @@
         private Label label5;
         private Button btnExcluir;
         private Button btnAtualizar;
+        private Button btnAnterior;
+        private Button btnProximo;
+        private Label lblPaginas;
     }
 }
