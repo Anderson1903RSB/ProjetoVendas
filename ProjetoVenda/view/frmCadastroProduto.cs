@@ -55,23 +55,35 @@ namespace ProjetoVenda.view
             };
 
             //Enviar os dados para a controller 
-
-            bool resp = controller.createProduct(product);
-
-            if (resp)
+            try
             {
-                MessageBox.Show("Produto cadastrado com sucesso", "Cadastro Produto",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bool resp = controller.createProduct(product);
+                if (resp)
+                {
+                    MessageBox.Show("Produto cadastrado com sucesso", "Cadastro Produto",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                limparCampos();
-                carregarProdutos();
+                    limparCampos();
+                    carregarProdutos();
 
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar Produto", "Cadastro Produto",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar Produto", "Cadastro Produto",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //mostrar o pq deu erro
+                MessageBox.Show(ex.Message, "Erro no produto",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
+            
+
+           
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -81,22 +93,24 @@ namespace ProjetoVenda.view
         private void frmCadastroProduto_Load(object sender, EventArgs e)
         {
             //FINALIZAR LISTAR OS PRODUTOS
+            this.cbxQuantidadeItens.SelectedIndex = 0;
             carregarProdutos();
-            //int paginas = controller.quantidadePaginas(5);
-            //lblPaginas.Text = $"1 de {paginas}";
+
         }
         private void carregarProdutos()
         {
-            List<Product> list = controller.listarPorPagina(totalPorPagina, paginaAtual);
-            this.dgvProdutos.DataSource = list;
-            this.dgvProdutos.Columns["cod_funcionario"].Visible = false;
-            
+
             totalDePaginas = controller.quantidadePaginas(totalPorPagina);
             if (paginaAtual > totalDePaginas)
             {
                 paginaAtual = totalDePaginas;
             }
             atualizarLblPagina();
+
+            List<Product> list = controller.listarPorPagina(totalPorPagina, paginaAtual);
+            this.dgvProdutos.DataSource = list;
+            this.dgvProdutos.Columns["cod_funcionario"].Visible = false;
+
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -187,11 +201,20 @@ namespace ProjetoVenda.view
             }
         }
         private void atualizarLblPagina()
-            {
-                this.lblPaginas.Text = $"Pagina {paginaAtual} de {totalDePaginas}";
-            }
+        {
+            this.lblPaginas.Text = $"<<Pagina {paginaAtual} de {totalDePaginas}>>";
+        }
 
+        private void cbxQuantidadeItens_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // capturar o numero e recalcular as páginas
+            this.totalPorPagina = int.Parse(this.cbxQuantidadeItens.Text);
+            carregarProdutos();
+        }
 
-        
+        private void lblPaginas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

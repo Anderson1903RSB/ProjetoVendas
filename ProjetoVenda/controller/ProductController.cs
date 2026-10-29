@@ -15,12 +15,13 @@ namespace ProjetoVenda.controller
             repository = new ProductRepository();
         }
 
-        public bool createProduct(Product product)
+        public bool createProduct(Product produto)
         {
             int cod_funcionario = Session.userAuth.cod_funcionario;
-            product.cod_funcionario = cod_funcionario;
-            // chamar a repository
-            repository.createProduct(product);
+            produto.cod_funcionario = cod_funcionario;
+            produto.validar();
+            // chamar a repository E FAZER O CADASTRO
+            repository.createProduct(produto);
 
             return true;
         }

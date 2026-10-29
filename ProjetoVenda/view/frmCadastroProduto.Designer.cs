@@ -44,13 +44,15 @@
             btnAnterior = new Button();
             btnProximo = new Button();
             lblPaginas = new Label();
+            cbxQuantidadeItens = new ComboBox();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)txtQuantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
             SuspendLayout();
             // 
             // txtQuantidade
             // 
-            txtQuantidade.Location = new Point(360, 194);
+            txtQuantidade.Location = new Point(360, 162);
             txtQuantidade.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             txtQuantidade.Name = "txtQuantidade";
             txtQuantidade.Size = new Size(120, 23);
@@ -71,7 +73,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label1.Location = new Point(360, 169);
+            label1.Location = new Point(360, 137);
             label1.Name = "label1";
             label1.Size = new Size(100, 21);
             label1.TabIndex = 5;
@@ -82,7 +84,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label2.Location = new Point(69, 169);
+            label2.Location = new Point(69, 137);
             label2.Name = "label2";
             label2.Size = new Size(50, 21);
             label2.TabIndex = 6;
@@ -106,7 +108,7 @@
             // 
             // txtPreco
             // 
-            txtPreco.Location = new Point(69, 193);
+            txtPreco.Location = new Point(69, 161);
             txtPreco.Name = "txtPreco";
             txtPreco.PlaceholderText = "R$ 00000,00";
             txtPreco.Size = new Size(179, 23);
@@ -145,7 +147,7 @@
             dgvProdutos.Name = "dgvProdutos";
             dgvProdutos.ReadOnly = true;
             dgvProdutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProdutos.Size = new Size(743, 328);
+            dgvProdutos.Size = new Size(743, 283);
             dgvProdutos.TabIndex = 9;
             dgvProdutos.CellDoubleClick += dgvProdutos_CellDoubleClick;
             // 
@@ -193,7 +195,7 @@
             btnAnterior.Name = "btnAnterior";
             btnAnterior.Size = new Size(101, 52);
             btnAnterior.TabIndex = 11;
-            btnAnterior.Text = "<Anterior";
+            btnAnterior.Text = "<< Anterior";
             btnAnterior.UseVisualStyleBackColor = true;
             btnAnterior.Click += btnAnterior_Click;
             // 
@@ -204,19 +206,41 @@
             btnProximo.Name = "btnProximo";
             btnProximo.Size = new Size(103, 52);
             btnProximo.TabIndex = 12;
-            btnProximo.Text = "Proximo>";
+            btnProximo.Text = "Proximo >>";
             btnProximo.UseVisualStyleBackColor = true;
             btnProximo.Click += btnProximo_Click;
             // 
             // lblPaginas
             // 
-            lblPaginas.Font = new Font("Segoe UI", 12F);
+            lblPaginas.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblPaginas.Location = new Point(110, 595);
             lblPaginas.Name = "lblPaginas";
             lblPaginas.Size = new Size(515, 23);
             lblPaginas.TabIndex = 13;
-            lblPaginas.Text = "Pagina 1 de 5";
+            lblPaginas.Text = "<Pagina 1 de 5>";
             lblPaginas.TextAlign = ContentAlignment.MiddleCenter;
+            lblPaginas.Click += lblPaginas_Click;
+            // 
+            // cbxQuantidadeItens
+            // 
+            cbxQuantidadeItens.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxQuantidadeItens.FormattingEnabled = true;
+            cbxQuantidadeItens.Items.AddRange(new object[] { "7", "13", "25", "50", "100" });
+            cbxQuantidadeItens.Location = new Point(69, 213);
+            cbxQuantidadeItens.Name = "cbxQuantidadeItens";
+            cbxQuantidadeItens.Size = new Size(114, 23);
+            cbxQuantidadeItens.TabIndex = 14;
+            cbxQuantidadeItens.SelectedIndexChanged += cbxQuantidadeItens_SelectedIndexChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label6.Location = new Point(69, 189);
+            label6.Name = "label6";
+            label6.Size = new Size(88, 21);
+            label6.TabIndex = 15;
+            label6.Text = "Qtde itens";
             // 
             // frmCadastroProduto
             // 
@@ -224,6 +248,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(746, 648);
+            Controls.Add(label6);
+            Controls.Add(cbxQuantidadeItens);
             Controls.Add(lblPaginas);
             Controls.Add(btnProximo);
             Controls.Add(btnAnterior);
@@ -267,5 +293,7 @@
         private Button btnAnterior;
         private Button btnProximo;
         private Label lblPaginas;
+        private ComboBox cbxQuantidadeItens;
+        private Label label6;
     }
 }
