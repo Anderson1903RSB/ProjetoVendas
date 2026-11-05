@@ -43,6 +43,10 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            dgvFuncionario = new DataGridView();
+            cbxAdm = new ComboBox();
+            Perfil = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvFuncionario).BeginInit();
             SuspendLayout();
             // 
             // txtNome
@@ -104,7 +108,7 @@
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(456, 213);
+            btnCadastrar.Location = new Point(503, 233);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(171, 85);
             btnCadastrar.TabIndex = 9;
@@ -143,11 +147,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(113, 171);
+            label2.Location = new Point(58, 171);
             label2.Name = "label2";
             label2.Size = new Size(37, 15);
             label2.TabIndex = 11;
             label2.Text = "Login";
+            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -180,11 +185,47 @@
             label5.TabIndex = 14;
             label5.Text = "CADASTRO DE FUNCIONARIO";
             // 
+            // dgvFuncionario
+            // 
+            dgvFuncionario.AllowUserToAddRows = false;
+            dgvFuncionario.AllowUserToDeleteRows = false;
+            dgvFuncionario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvFuncionario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFuncionario.Location = new Point(12, 352);
+            dgvFuncionario.MultiSelect = false;
+            dgvFuncionario.Name = "dgvFuncionario";
+            dgvFuncionario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFuncionario.Size = new Size(706, 328);
+            dgvFuncionario.TabIndex = 15;
+            dgvFuncionario.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // cbxAdm
+            // 
+            cbxAdm.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxAdm.FormattingEnabled = true;
+            cbxAdm.Items.AddRange(new object[] { "Funcionario", "Administrador" });
+            cbxAdm.Location = new Point(67, 323);
+            cbxAdm.Name = "cbxAdm";
+            cbxAdm.Size = new Size(116, 23);
+            cbxAdm.TabIndex = 16;
+            // 
+            // Perfil
+            // 
+            Perfil.AutoSize = true;
+            Perfil.Location = new Point(67, 305);
+            Perfil.Name = "Perfil";
+            Perfil.Size = new Size(34, 15);
+            Perfil.TabIndex = 17;
+            Perfil.Text = "Perfil";
+            // 
             // frmCadastroFuncionario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 318);
+            ClientSize = new Size(730, 692);
+            Controls.Add(Perfil);
+            Controls.Add(cbxAdm);
+            Controls.Add(dgvFuncionario);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -204,6 +245,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro Funcionario";
             Load += frmCadastroFuncionario_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvFuncionario).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -225,5 +267,8 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private DataGridView dgvFuncionario;
+        private ComboBox cbxAdm;
+        private Label Perfil;
     }
 }

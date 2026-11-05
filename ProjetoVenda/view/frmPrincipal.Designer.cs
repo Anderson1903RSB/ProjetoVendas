@@ -32,9 +32,10 @@
             btnCadProduto = new Button();
             label1 = new Label();
             panel1 = new Panel();
+            btnSair = new Button();
             panel2 = new Panel();
             painelPrincipal = new Panel();
-            btnSair = new Button();
+            btnPerfil = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -76,6 +77,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnPerfil);
             panel1.Controls.Add(btnSair);
             panel1.Controls.Add(btnCadFuncionario);
             panel1.Controls.Add(label1);
@@ -85,6 +87,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(230, 631);
             panel1.TabIndex = 2;
+            // 
+            // btnSair
+            // 
+            btnSair.Location = new Point(37, 564);
+            btnSair.Name = "btnSair";
+            btnSair.Size = new Size(147, 47);
+            btnSair.TabIndex = 2;
+            btnSair.Text = "SAIR";
+            btnSair.UseVisualStyleBackColor = true;
+            btnSair.Click += btnSair_Click;
             // 
             // panel2
             // 
@@ -102,15 +114,16 @@
             painelPrincipal.Size = new Size(707, 522);
             painelPrincipal.TabIndex = 4;
             // 
-            // btnSair
+            // btnPerfil
             // 
-            btnSair.Location = new Point(37, 564);
-            btnSair.Name = "btnSair";
-            btnSair.Size = new Size(147, 47);
-            btnSair.TabIndex = 2;
-            btnSair.Text = "SAIR";
-            btnSair.UseVisualStyleBackColor = true;
-            btnSair.Click += btnSair_Click;
+            btnPerfil.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnPerfil.Location = new Point(42, 507);
+            btnPerfil.Name = "btnPerfil";
+            btnPerfil.Size = new Size(140, 46);
+            btnPerfil.TabIndex = 3;
+            btnPerfil.Text = "Perfil";
+            btnPerfil.UseVisualStyleBackColor = true;
+            btnPerfil.Click += btnPerfil_Click;
             // 
             // frmPrincipal
             // 
@@ -138,5 +151,6 @@
         private Panel panel2;
         private Panel painelPrincipal;
         private Button btnSair;
+        private Button btnPerfil;
     }
 }

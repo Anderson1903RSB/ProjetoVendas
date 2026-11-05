@@ -81,9 +81,9 @@ namespace ProjetoVenda.view
             }
 
 
-            
 
-           
+
+
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -213,6 +213,11 @@ namespace ProjetoVenda.view
         }
 
         private void lblPaginas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

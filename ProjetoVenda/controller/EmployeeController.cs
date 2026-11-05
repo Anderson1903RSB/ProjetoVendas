@@ -9,6 +9,11 @@ namespace ProjetoVenda.controller
 {
     internal class EmployeeController
     {
+        private EmployeeRepository repository;
+        public EmployeeController()
+        {
+            repository = new EmployeeRepository();
+        }
         public  bool login(string username, string password)
         {
             EmployeeRepository repository = new EmployeeRepository();
@@ -45,34 +50,54 @@ namespace ProjetoVenda.controller
             
         }
 
-        public  bool createEmployee(string nome, string telefone, string rua, string numero, string cep, string complemento, string usuario, string senha)
+
+        public  bool createEmployee (Employee funcionario)
         {
 
             //fazer verificação se o usuario não existe
             //solicitar ao repository se o usuario existe
             EmployeeRepository repository = new EmployeeRepository();
-            Employee? resp = repository.getByUsername(usuario);
+            Employee? resp = repository.getByUsername(funcionario.usuario);
             if (resp != null) 
             {
                 return false;
             }
-            string hash = BCrypt.Net.BCrypt.HashPassword(senha);
-            Employee funcionario = new Employee
-            {
-                nome = nome,
-                telefone = telefone,
-                rua = rua,
-                numero = numero,
-                cep = cep,
-                complemento = complemento,
-                usuario = usuario,
-                senha = hash,
-            };
+            string hash = BCrypt.Net.BCrypt.HashPassword(funcionario.senha);
+            funcionario.senha = hash;
+            
             repository.createEmployee(funcionario);
 
             return true;
 
         }
+        public void deslogar()
+        {
+            Session.userAuth = null;
+        }
+
+        public Employee? usuarioAutenticado()
+        {
+            return Session.userAuth;
+        }
+
+        public List<Employee> listarFuncionarios()
+
+        {
+
+            return repository.listarFuncionarios();
+
+        }
+
+        public bool usuarioAdministrador()
+        {
+            if ( Session.userAuth == null)
+            {
+                return false;
+            }
+            return Session.userAuth.adm;
+        }
+
     }
+
 
 }

@@ -24,3 +24,5 @@ C:\Users\anderson.rsbarbosa\source\repos\ProjetoVenda\ProjetoVenda\obj\Debug\net
 C:\Users\anderson.rsbarbosa\source\repos\ProjetoVenda\ProjetoVenda\obj\Debug\net10.0-windows\ProjetoVenda.view.FrmPrincipal.resources
 C:\Users\anderson.rsbarbosa\source\repos\ProjetoVenda\ProjetoVenda\obj\Debug\net10.0-windows\ProjetoVenda.Properties.Resources.resources
 C:\Users\anderson.rsbarbosa\source\repos\ProjetoVenda\ProjetoVenda\obj\Debug\net10.0-windows\ProjetoVenda.view.frmCadastroProduto.resources
+C:\Users\anderson.rsbarbosa\source\repos\ProjetoVenda\ProjetoVenda\obj\Debug\net10.0-windows\ProjetoVenda.view.frmPerfilUsuario.resources
+C:\Users\anderson.rsbarbosa\source\repos\ProjetoVenda\ProjetoVenda\obj\Debug\net10.0-windows\ProjetoVenda.sourcelink.json

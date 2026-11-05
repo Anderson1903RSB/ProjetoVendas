@@ -64,7 +64,7 @@ namespace ProjetoVenda.repository
 
         }
 
-        public List<Product> listarPorPagina(int qtd, int pagina)
+        public List<Product> listarPorPagina(int qtd, int pagina) 
         {
             int offset = qtd * (pagina - 1);
             using MySqlConnection connector = Database.GetConnection();
