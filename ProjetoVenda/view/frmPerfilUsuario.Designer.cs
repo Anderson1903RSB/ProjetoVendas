@@ -120,6 +120,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(800, 450);
             Controls.Add(pctBox);
             Controls.Add(btnAtualizar);
@@ -131,7 +132,7 @@
             Controls.Add(txtTelefone);
             Controls.Add(txtNome);
             Name = "frmPerfilUsuario";
-            Text = "frmPerfilUsuario";
+            Text = "Perfil Usuario";
             Load += frmPerfilUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)pctBox).EndInit();
             ResumeLayout(false);
