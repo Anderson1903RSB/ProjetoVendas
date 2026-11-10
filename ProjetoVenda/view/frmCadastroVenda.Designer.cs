@@ -32,8 +32,10 @@
             lblPreco = new Label();
             lblQuantidade = new Label();
             numQuantidade = new NumericUpDown();
-            btnCadastrar = new Button();
+            btnAdionar = new Button();
             dgvCarrinho = new DataGridView();
+            btnCadastrar = new Button();
+            lblTotalVenda = new Label();
             ((System.ComponentModel.ISupportInitialize)numQuantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCarrinho).BeginInit();
             SuspendLayout();
@@ -53,9 +55,10 @@
             lblPreco.AutoSize = true;
             lblPreco.Location = new Point(18, 128);
             lblPreco.Name = "lblPreco";
-            lblPreco.Size = new Size(132, 15);
+            lblPreco.Size = new Size(119, 15);
             lblPreco.TabIndex = 1;
-            lblPreco.Text = "Preço Unitário R$ XX,XX";
+            lblPreco.Text = "Preço Unitário  XX,XX";
+            lblPreco.Click += lblPreco_Click;
             // 
             // lblQuantidade
             // 
@@ -73,16 +76,17 @@
             numQuantidade.Size = new Size(85, 23);
             numQuantidade.TabIndex = 3;
             // 
-            // btnCadastrar
+            // btnAdionar
             // 
-            btnCadastrar.BackColor = Color.LawnGreen;
-            btnCadastrar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnCadastrar.Location = new Point(483, 157);
-            btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(85, 38);
-            btnCadastrar.TabIndex = 4;
-            btnCadastrar.Text = "Add Venda";
-            btnCadastrar.UseVisualStyleBackColor = false;
+            btnAdionar.BackColor = Color.LawnGreen;
+            btnAdionar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnAdionar.Location = new Point(483, 157);
+            btnAdionar.Name = "btnAdionar";
+            btnAdionar.Size = new Size(85, 38);
+            btnAdionar.TabIndex = 4;
+            btnAdionar.Text = "Add Venda";
+            btnAdionar.UseVisualStyleBackColor = false;
+            btnAdionar.Click += btnAdionar_Click;
             // 
             // dgvCarrinho
             // 
@@ -99,14 +103,38 @@
             dgvCarrinho.Size = new Size(760, 334);
             dgvCarrinho.TabIndex = 5;
             // 
+            // btnCadastrar
+            // 
+            btnCadastrar.FlatStyle = FlatStyle.System;
+            btnCadastrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnCadastrar.Location = new Point(315, 677);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new Size(144, 36);
+            btnCadastrar.TabIndex = 6;
+            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += btnCadastrar_Click;
+            // 
+            // lblTotalVenda
+            // 
+            lblTotalVenda.Font = new Font("Arial", 18F, FontStyle.Bold);
+            lblTotalVenda.Location = new Point(18, 578);
+            lblTotalVenda.Name = "lblTotalVenda";
+            lblTotalVenda.Size = new Size(760, 26);
+            lblTotalVenda.TabIndex = 7;
+            lblTotalVenda.Text = "Total da Venda R$ XX,XX";
+            lblTotalVenda.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // frmCadastroVenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(800, 580);
-            Controls.Add(dgvCarrinho);
+            ClientSize = new Size(800, 734);
+            Controls.Add(lblTotalVenda);
             Controls.Add(btnCadastrar);
+            Controls.Add(dgvCarrinho);
+            Controls.Add(btnAdionar);
             Controls.Add(numQuantidade);
             Controls.Add(lblQuantidade);
             Controls.Add(lblPreco);
@@ -126,7 +154,9 @@
         private Label lblPreco;
         private Label lblQuantidade;
         private NumericUpDown numQuantidade;
-        private Button btnCadastrar;
+        private Button btnAdionar;
         private DataGridView dgvCarrinho;
+        private Button btnCadastrar;
+        private Label lblTotalVenda;
     }
 }

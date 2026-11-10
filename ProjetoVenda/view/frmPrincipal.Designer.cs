@@ -80,6 +80,8 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.GradientInactiveCaption;
+            panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(btnCadVenda);
             panel1.Controls.Add(btnPerfil);
             panel1.Controls.Add(btnSair);
@@ -89,7 +91,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(230, 631);
+            panel1.Size = new Size(230, 872);
             panel1.TabIndex = 2;
             // 
             // btnCadVenda
@@ -106,7 +108,7 @@
             // btnPerfil
             // 
             btnPerfil.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnPerfil.Location = new Point(42, 507);
+            btnPerfil.Location = new Point(37, 592);
             btnPerfil.Name = "btnPerfil";
             btnPerfil.Size = new Size(140, 46);
             btnPerfil.TabIndex = 3;
@@ -116,9 +118,11 @@
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(37, 564);
+            btnSair.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnSair.ForeColor = Color.IndianRed;
+            btnSair.Location = new Point(37, 649);
             btnSair.Name = "btnSair";
-            btnSair.Size = new Size(147, 47);
+            btnSair.Size = new Size(140, 47);
             btnSair.TabIndex = 2;
             btnSair.Text = "SAIR";
             btnSair.UseVisualStyleBackColor = true;
@@ -130,7 +134,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(230, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(707, 109);
+            panel2.Size = new Size(816, 109);
             panel2.TabIndex = 3;
             // 
             // lblTitulo
@@ -142,7 +146,7 @@
             lblTitulo.ForeColor = Color.IndianRed;
             lblTitulo.Location = new Point(0, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(707, 109);
+            lblTitulo.Size = new Size(816, 109);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Titulo da Tela";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -152,7 +156,7 @@
             painelPrincipal.Dock = DockStyle.Fill;
             painelPrincipal.Location = new Point(230, 109);
             painelPrincipal.Name = "painelPrincipal";
-            painelPrincipal.Size = new Size(707, 522);
+            painelPrincipal.Size = new Size(816, 763);
             painelPrincipal.TabIndex = 4;
             // 
             // frmPrincipal
@@ -160,7 +164,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(937, 631);
+            ClientSize = new Size(1046, 872);
             Controls.Add(painelPrincipal);
             Controls.Add(panel2);
             Controls.Add(panel1);
