@@ -13,11 +13,13 @@ namespace ProjetoVenda.view
     public partial class frmCadastroVenda : Form
     {
         private ProductController produtoControle;
+        private VendaControle vendaControle;
         private List<Item> carrinho = new List<Item>();
         public frmCadastroVenda()
         {
             InitializeComponent();
             produtoControle = new ProductController();
+            vendaControle = new VendaControle();
         }
 
         private void carregarProdutos()
@@ -83,8 +85,8 @@ namespace ProjetoVenda.view
 
         public void atualizarCarrinho()
         {
-            this.dgvCarrinho.DataSource = null;
-            this.dgvCarrinho.DataSource = this.carrinho;
+            
+            this.dgvCarrinho.DataSource = this.carrinho.ToList();
             this.btnCadastrar.Enabled = this.carrinho.Count() > 0;
             decimal total = this.carrinho.Sum(item => item.subTotal);
             this.lblTotalVenda.Text = $"Total da Venda: {total:c2}";
@@ -151,9 +153,29 @@ namespace ProjetoVenda.view
                 return;
             }
             //enviar os dados para o controle
-            carrinho.Clear();
-            frmCadastroVenda_Load(this, EventArgs.Empty);
-            MessageBox.Show("Venda Cadastrada com sucesso!!!");
+            try
+            {
+                bool resposta = vendaControle.cadastrarVenda(this.carrinho);
+                if (resposta)
+                {
+
+                    carrinho.Clear();
+                    frmCadastroVenda_Load(this, EventArgs.Empty);
+                    MessageBox.Show("Venda Cadastrada com sucesso!!!");
+                }
+                else
+                {
+                    MessageBox.Show($"Erro ao cadastrar Venda!", "Erro no Cadastro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}", "Erro no Cadastro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 
