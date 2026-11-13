@@ -50,6 +50,14 @@ namespace ProjetoVenda.view
 
                 });
             this.dgvCarrinho.Columns.Add(
+                new DataGridViewButtonColumn
+                {
+                    HeaderText = "Excluir Item",
+                    Name = "colunaExcluir",
+                    Text = "Excluir",
+                    UseColumnTextForButtonValue = true,
+                });
+            this.dgvCarrinho.Columns.Add(
                 new DataGridViewTextBoxColumn
                 {
                     HeaderText = "Marca",
@@ -85,7 +93,7 @@ namespace ProjetoVenda.view
 
         public void atualizarCarrinho()
         {
-            
+
             this.dgvCarrinho.DataSource = this.carrinho.ToList();
             this.btnCadastrar.Enabled = this.carrinho.Count() > 0;
             decimal total = this.carrinho.Sum(item => item.subTotal);
@@ -175,7 +183,35 @@ namespace ProjetoVenda.view
                 MessageBox.Show($"Erro: {ex.Message}", "Erro no Cadastro",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void dgvCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) 
+            {
+                return;
+            }
+            if (this.dgvCarrinho.Columns[e.ColumnIndex].Name == "colunaExcluir")
+            {
+                excluirItemCarrinho(e.RowIndex);
+            }
             
+        }
+        private void excluirItemCarrinho(int indice)
+        {
+            
+            DialogResult confirmar = MessageBox.Show(
+                $"Deseja excluir o item?", "Excluir Item",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmar == DialogResult.No)
+            {
+                return;
+            }
+            this.carrinho.RemoveAt(indice);
+            atualizarCarrinho();
+            //excluir o item
+
         }
     }
 

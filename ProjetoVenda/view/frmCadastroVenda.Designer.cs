@@ -102,6 +102,7 @@
             dgvCarrinho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCarrinho.Size = new Size(760, 334);
             dgvCarrinho.TabIndex = 5;
+            dgvCarrinho.CellContentClick += dgvCarrinho_CellContentClick;
             // 
             // btnCadastrar
             // 
