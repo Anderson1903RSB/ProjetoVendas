@@ -1,4 +1,4 @@
-using ProjetoVenda.view;
+using ProjetoVenda.formulario;
 namespace ProjetoVenda
 {
     internal static class Program

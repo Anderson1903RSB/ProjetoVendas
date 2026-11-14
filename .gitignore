@@ -19,6 +19,8 @@
 
 # Mono auto generated files
 mono_crash.*
+ProjetoVendas/bin/**
+ProjetoVendas/obj/**
 
 # Build results
 [Dd]ebug/
