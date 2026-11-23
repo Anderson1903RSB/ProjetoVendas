@@ -34,6 +34,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             dgvProdutos = new DataGridView();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             label6 = new Label();
             cbxQuantidadeItens = new ComboBox();
             btnExcluir = new Button();
@@ -51,6 +52,7 @@
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtQuantidade).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -139,6 +141,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(cbxQuantidadeItens);
             panel1.Controls.Add(btnExcluir);
@@ -157,6 +160,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(989, 174);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.mais_vendidos;
+            pictureBox1.Location = new Point(15, 18);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(102, 87);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 29;
+            pictureBox1.TabStop = false;
             // 
             // label6
             // 
@@ -322,6 +335,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtQuantidade).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
@@ -348,5 +362,6 @@
         private NumericUpDown txtQuantidade;
         private Panel panel2;
         private DataGridView dgvProdutos;
+        private PictureBox pictureBox1;
     }
 }

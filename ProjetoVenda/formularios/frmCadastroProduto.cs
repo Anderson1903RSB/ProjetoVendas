@@ -79,6 +79,8 @@ namespace ProjetoVenda.formulario
                 MessageBox.Show(ex.Message, "Erro no produto",
                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.btnAtualizar.Enabled = false;
+            this.btnExcluir.Enabled = false;
 
 
 

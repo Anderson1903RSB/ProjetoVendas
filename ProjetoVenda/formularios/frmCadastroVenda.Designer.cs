@@ -31,6 +31,8 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             dgvCarrinho = new DataGridView();
             panel1 = new Panel();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
             btnAdionar = new Button();
             numQuantidade = new NumericUpDown();
             lblQuantidade = new Label();
@@ -42,6 +44,7 @@
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCarrinho).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numQuantidade).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -84,6 +87,8 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(btnAdionar);
             panel1.Controls.Add(numQuantidade);
             panel1.Controls.Add(lblQuantidade);
@@ -94,11 +99,31 @@
             panel1.Size = new Size(701, 174);
             panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.Location = new Point(142, 26);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 15);
+            label1.TabIndex = 11;
+            label1.Text = "Produto";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.compras;
+            pictureBox1.Location = new Point(3, 26);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(116, 76);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // btnAdionar
             // 
             btnAdionar.BackColor = Color.LawnGreen;
             btnAdionar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnAdionar.Location = new Point(543, 113);
+            btnAdionar.Location = new Point(609, 110);
             btnAdionar.Name = "btnAdionar";
             btnAdionar.Size = new Size(85, 38);
             btnAdionar.TabIndex = 9;
@@ -108,7 +133,7 @@
             // 
             // numQuantidade
             // 
-            numQuantidade.Location = new Point(543, 76);
+            numQuantidade.Location = new Point(609, 73);
             numQuantidade.Name = "numQuantidade";
             numQuantidade.Size = new Size(85, 23);
             numQuantidade.TabIndex = 8;
@@ -116,7 +141,7 @@
             // lblQuantidade
             // 
             lblQuantidade.AutoSize = true;
-            lblQuantidade.Location = new Point(77, 125);
+            lblQuantidade.Location = new Point(143, 122);
             lblQuantidade.Name = "lblQuantidade";
             lblQuantidade.Size = new Size(137, 15);
             lblQuantidade.TabIndex = 7;
@@ -125,7 +150,7 @@
             // lblPreco
             // 
             lblPreco.AutoSize = true;
-            lblPreco.Location = new Point(78, 84);
+            lblPreco.Location = new Point(144, 81);
             lblPreco.Name = "lblPreco";
             lblPreco.Size = new Size(119, 15);
             lblPreco.TabIndex = 6;
@@ -135,7 +160,7 @@
             // 
             cbxProdutos.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxProdutos.FormattingEnabled = true;
-            cbxProdutos.Location = new Point(72, 23);
+            cbxProdutos.Location = new Point(138, 44);
             cbxProdutos.Name = "cbxProdutos";
             cbxProdutos.Size = new Size(556, 23);
             cbxProdutos.TabIndex = 5;
@@ -188,6 +213,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvCarrinho).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numQuantidade).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
@@ -205,5 +231,7 @@
         private Panel panel2;
         private Label lblTotalVenda;
         private Button btnCadastrar;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }

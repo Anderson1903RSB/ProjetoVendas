@@ -45,30 +45,39 @@
             // btnCadFuncionario
             // 
             btnCadFuncionario.BackColor = Color.White;
+            btnCadFuncionario.BackgroundImageLayout = ImageLayout.Stretch;
             btnCadFuncionario.FlatAppearance.MouseDownBackColor = Color.Silver;
             btnCadFuncionario.FlatAppearance.MouseOverBackColor = Color.Silver;
             btnCadFuncionario.FlatStyle = FlatStyle.Flat;
             btnCadFuncionario.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnCadFuncionario.ForeColor = SystemColors.ActiveCaptionText;
+            btnCadFuncionario.Image = Properties.Resources.adicionar_usuario__1_;
             btnCadFuncionario.Location = new Point(22, 133);
             btnCadFuncionario.Name = "btnCadFuncionario";
             btnCadFuncionario.Size = new Size(157, 85);
             btnCadFuncionario.TabIndex = 0;
             btnCadFuncionario.Text = "Cadastro Funcionario";
+            btnCadFuncionario.TextImageRelation = TextImageRelation.ImageAboveText;
             btnCadFuncionario.UseVisualStyleBackColor = false;
             btnCadFuncionario.Click += btnCadFuncionario_Click;
             // 
             // btnCadProduto
             // 
             btnCadProduto.BackColor = Color.White;
+            btnCadProduto.BackgroundImageLayout = ImageLayout.Zoom;
             btnCadProduto.FlatAppearance.MouseDownBackColor = Color.Silver;
             btnCadProduto.FlatAppearance.MouseOverBackColor = Color.Silver;
             btnCadProduto.FlatStyle = FlatStyle.Flat;
             btnCadProduto.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnCadProduto.Image = Properties.Resources.mais_vendidos;
+            btnCadProduto.ImageAlign = ContentAlignment.TopCenter;
             btnCadProduto.Location = new Point(22, 259);
             btnCadProduto.Name = "btnCadProduto";
             btnCadProduto.Size = new Size(157, 75);
             btnCadProduto.TabIndex = 1;
             btnCadProduto.Text = "Cadastro Produto";
+            btnCadProduto.TextAlign = ContentAlignment.BottomCenter;
+            btnCadProduto.TextImageRelation = TextImageRelation.ImageAboveText;
             btnCadProduto.UseVisualStyleBackColor = false;
             btnCadProduto.Click += btnCadProduto_Click_1;
             // 
@@ -109,22 +118,26 @@
             btnCadVenda.FlatAppearance.MouseOverBackColor = Color.Silver;
             btnCadVenda.FlatStyle = FlatStyle.Flat;
             btnCadVenda.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnCadVenda.Location = new Point(24, 352);
+            btnCadVenda.Image = Properties.Resources.compras;
+            btnCadVenda.Location = new Point(28, 352);
             btnCadVenda.Name = "btnCadVenda";
             btnCadVenda.Size = new Size(151, 73);
             btnCadVenda.TabIndex = 4;
             btnCadVenda.Text = "Cadastrar Venda";
+            btnCadVenda.TextImageRelation = TextImageRelation.ImageAboveText;
             btnCadVenda.UseVisualStyleBackColor = false;
             btnCadVenda.Click += btnCadVenda_Click;
             // 
             // btnPerfil
             // 
             btnPerfil.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnPerfil.Location = new Point(30, 592);
+            btnPerfil.Image = Properties.Resources.perfil;
+            btnPerfil.Location = new Point(30, 563);
             btnPerfil.Name = "btnPerfil";
-            btnPerfil.Size = new Size(140, 46);
+            btnPerfil.Size = new Size(140, 75);
             btnPerfil.TabIndex = 3;
             btnPerfil.Text = "Perfil";
+            btnPerfil.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnPerfil.UseVisualStyleBackColor = true;
             btnPerfil.Click += btnPerfil_Click;
             // 
@@ -132,11 +145,13 @@
             // 
             btnSair.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnSair.ForeColor = Color.IndianRed;
+            btnSair.Image = Properties.Resources.sair;
             btnSair.Location = new Point(30, 649);
             btnSair.Name = "btnSair";
-            btnSair.Size = new Size(140, 47);
+            btnSair.Size = new Size(140, 77);
             btnSair.TabIndex = 2;
             btnSair.Text = "SAIR";
+            btnSair.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSair.UseVisualStyleBackColor = true;
             btnSair.Click += btnSair_Click;
             // 

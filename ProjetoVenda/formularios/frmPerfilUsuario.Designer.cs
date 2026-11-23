@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerfilUsuario));
             txtNome = new TextBox();
             txtTelefone = new TextBox();
             txtCep = new TextBox();
@@ -44,8 +43,8 @@
             label2 = new Label();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            label5 = new Label();
             label6 = new Label();
+            label5 = new Label();
             groupBox2 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pctBox).BeginInit();
             Endereco.SuspendLayout();
@@ -121,7 +120,7 @@
             // 
             // pctBox
             // 
-            pctBox.Image = (Image)resources.GetObject("pctBox.Image");
+            pctBox.Image = Properties.Resources.perfil;
             pctBox.Location = new Point(29, 7);
             pctBox.Name = "pctBox";
             pctBox.Size = new Size(195, 142);
@@ -195,15 +194,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Funcionario";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(0, 93);
-            label5.Name = "label5";
-            label5.Size = new Size(52, 15);
-            label5.TabIndex = 6;
-            label5.Text = "Telefone";
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -212,6 +202,15 @@
             label6.Size = new Size(40, 15);
             label6.TabIndex = 6;
             label6.Text = "Nome";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(0, 93);
+            label5.Name = "label5";
+            label5.Size = new Size(52, 15);
+            label5.TabIndex = 6;
+            label5.Text = "Telefone";
             // 
             // groupBox2
             // 

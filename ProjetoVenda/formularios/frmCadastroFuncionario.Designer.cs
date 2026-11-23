@@ -32,6 +32,7 @@
             dgvFuncionario = new DataGridView();
             panel1 = new Panel();
             panel3 = new Panel();
+            pictureBox1 = new PictureBox();
             label4 = new Label();
             label3 = new Label();
             label7 = new Label();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvFuncionario).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -100,6 +102,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label7);
@@ -117,6 +120,16 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(672, 204);
             panel3.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.perfil__1_;
+            pictureBox1.Location = new Point(563, 30);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(102, 82);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 26;
+            pictureBox1.TabStop = false;
             // 
             // label4
             // 
@@ -319,6 +332,7 @@
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -349,5 +363,6 @@
         private Button btnCadastrar;
         private TextBox txtSenha;
         private TextBox txtUsuario;
+        private PictureBox pictureBox1;
     }
 }
