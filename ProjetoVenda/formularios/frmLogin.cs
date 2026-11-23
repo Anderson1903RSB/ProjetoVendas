@@ -41,5 +41,9 @@ namespace ProjetoVenda.formulario
             /*    if (Session.login(usuario, senha))    {        this.DialogResult = DialogResult.OK;        this.Close();    } else    {        MessageBox.Show(            "Usuário ou senha incorretos",            "Erro de Login",            MessageBoxButtons.OK,            MessageBoxIcon.Error            );        //this.txtUsuario.Text = "";        this.txtSenha.Text = "";    }    */
         }
 
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

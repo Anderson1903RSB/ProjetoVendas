@@ -86,5 +86,10 @@ namespace ProjetoVenda.formulario
             frmCadastroVenda frm = new frmCadastroVenda();
             exibirFormulario(frm);
         }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

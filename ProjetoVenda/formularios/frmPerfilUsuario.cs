@@ -41,5 +41,10 @@ namespace ProjetoVenda.formulario
 
             this.txtUsuario.Text = funcionario.usuario;
         }
+
+        private void txtNumero_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

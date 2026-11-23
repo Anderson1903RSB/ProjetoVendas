@@ -219,6 +219,18 @@ namespace ProjetoVenda.formulario
 
         private void dgvProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            this.totalPorPagina = int.Parse(this.cbxQuantidadeItens.Text);
+            carregarProdutos();
+        }
+
+        private void cbxQuantidadeItens_SelectedIndexChang(object sender, EventArgs e)
+        {
+            this.totalPorPagina = int.Parse(this.cbxQuantidadeItens.Text);
+            carregarProdutos();
+        }
+
+        private void cbxQuantidadeItens_SelectedIndexCh(object sender, EventArgs e)
+        {
 
         }
     }
