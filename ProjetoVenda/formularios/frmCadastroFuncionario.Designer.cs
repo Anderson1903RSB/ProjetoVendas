@@ -86,6 +86,7 @@
             dgvFuncionario.Location = new Point(3, 403);
             dgvFuncionario.MultiSelect = false;
             dgvFuncionario.Name = "dgvFuncionario";
+            dgvFuncionario.ReadOnly = true;
             dgvFuncionario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvFuncionario.Size = new Size(672, 286);
             dgvFuncionario.TabIndex = 12;
