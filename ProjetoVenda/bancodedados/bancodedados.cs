@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DotNetEnv;
 
 namespace ProjetoVenda.database
 {
@@ -11,13 +12,16 @@ namespace ProjetoVenda.database
 
         static bancodedados()
         {
+            string caminho = Path.Combine(AppContext.BaseDirectory, ".env");
+            Env.Load(caminho);
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder
             {
-                Server = "localhost",
-                Port = 3306,
-                Database = "db_vendas",
-                UserID = "root",
-                Password = ""
+               
+                Server = Env.GetString("DB_HOSTNAME"),
+                Port = uint.Parse(Env.GetString("DB_PORT")),
+                Database = Env.GetString ("DB_NAME"),
+                UserID = Env.GetString("DB_USER"),
+                Password = Env.GetString("DB_PASSWORD"),
             };
             textoDeConexao = builder.ConnectionString;
         }

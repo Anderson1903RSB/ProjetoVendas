@@ -1,6 +1,7 @@
 using ProjetoVenda.controle;
 using ProjetoVenda.formulario;
 using QuestPDF.Infrastructure;
+using ProjetoVenda.modelo;
 namespace ProjetoVenda
 {
     internal static class Program
@@ -14,6 +15,19 @@ namespace ProjetoVenda
             QuestPDF.Settings.License = LicenseType.Community;
             
             ApplicationConfiguration.Initialize();
+            //Relatorio relatorio = new Relatorio();
+            //List<Item> itens = new List<Item>();
+            //itens.Add(
+            //    new Item
+            //    {
+            //        nomeProduto = "Pera",
+            //        preco = 350,
+            //        quantidade = 4,
+            //    }
+            //);
+
+            //var documento = relatorio.gerarNota(itens);
+            //relatorio.salvarPdf(documento);
             //Application.Run(new frmLogin());
             //Relatorio relatorio = new Relatorio();
             //relatorio.salvarPdf();

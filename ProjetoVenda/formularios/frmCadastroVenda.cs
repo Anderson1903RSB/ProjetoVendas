@@ -175,11 +175,13 @@ namespace ProjetoVenda.formulario
                 if (resposta)
                 {
 
-                    carrinho.Clear();
-                    frmCadastroVenda_Load(this, EventArgs.Empty);
+                    
                     MessageBox.Show("Venda Cadastrada com sucesso!!!");
                     //mostrar o cupom de venda!!!
-                    relatorio.salvarPdf();
+                    var documento = relatorio.gerarNota(carrinho);
+                    relatorio.salvarPdf(documento);
+                    frmCadastroVenda_Load(this, EventArgs.Empty);
+                    carrinho.Clear();
 
                 }
                 else
