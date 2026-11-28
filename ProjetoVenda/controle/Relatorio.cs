@@ -92,6 +92,201 @@ namespace ProjetoVenda.controle
 
         }
 
+        private void resumo(IContainer conteudo, List<Venda> listaDeVenda)
+        {
+            int quantidadeDeVendas = listaDeVenda.Count();
+            Venda? maiorVenda = listaDeVenda.OrderByDescending(venda=>venda.total).FirstOrDefault();
+            Venda? menorVenda = listaDeVenda.OrderBy(venda=> venda.total).FirstOrDefault();
+            conteudo.Column(coluna =>
+            {
+                coluna.Item()
+                .Background(Colors.BlueGrey.Darken1)
+                .Padding(8)
+                .Border(0.5f, Colors.BlueGrey.Darken2)
+                .DefaultTextStyle(e=>e.FontColor(Colors.White))
+                .Text("RESUMO GERAL");
+
+                coluna.Item().Row(linha =>
+                {
+                    linha.RelativeItem().Text($"Maior Venda:{maiorVenda.total:c2}");
+                    linha.RelativeItem().Text($"Menor Venda:{menorVenda.total:c2}");
+                    linha.RelativeItem().Text($"Total de Vendas:{quantidadeDeVendas}");
+                });
+            });
+        }
+
+        private void rankFuncionario(IContainer conteudo, List<Venda> listaDeVenda)
+        {
+            var funcionarios = listaDeVenda.GroupBy(venda => new { 
+                venda.cod_funcionario,
+                venda.nomefuncionario
+            }).Select(grupo=>new
+            {
+                cod_funcionario = grupo.Key.cod_funcionario,
+                nome = grupo.Key.nomefuncionario,
+                quantidadeVendas = grupo.Count(),
+                total = grupo.Sum(venda=>venda.total)
+            }).OrderByDescending(funcionario=>funcionario.total).ToList();
+
+
+            conteudo.Column(coluna =>
+            {
+                coluna.Spacing(20);
+                coluna.Item()
+                .Background(Colors.BlueGrey.Darken1)
+                .Padding(8)
+                .Border(0.5f, Colors.BlueGrey.Darken2)
+                .DefaultTextStyle(e => e.FontColor(Colors.White))
+                .Text("RANKING DOS FUNCIONARIOS");
+
+                coluna.Spacing(10);
+
+                coluna.Item().Table(tabela => {
+                    tabela.ColumnsDefinition(coluna =>
+                    {
+                        coluna.ConstantColumn(30);
+                        coluna.ConstantColumn(40);
+                        coluna.RelativeColumn(2);
+                        coluna.ConstantColumn(40);
+                        coluna.RelativeColumn();
+                    });
+                    tabela.Header(cabecalho =>
+                    {
+                        cabecalho.Cell().Background(Colors.Grey.Lighten1).BorderBottom(0.5f).Text("#");
+                        cabecalho.Cell().Background(Colors.Grey.Lighten1).BorderBottom(0.5f).Text("cod");
+                        cabecalho.Cell().Background(Colors.Grey.Lighten1).BorderBottom(0.5f).Text("nome");
+                        cabecalho.Cell().Background(Colors.Grey.Lighten1).BorderBottom(0.5f).Text("QTD");
+                        cabecalho.Cell().Background(Colors.Grey.Lighten1).BorderBottom(0.5f).Text("Total").AlignRight();
+                    });
+                    int pos = 1;
+                    foreach(var funcionario in funcionarios)
+                    {
+                        tabela.Cell().Text($"{pos}");
+                        tabela.Cell().Text($"{funcionario.cod_funcionario}");
+                        tabela.Cell().Text($"{funcionario.nome}");
+                        tabela.Cell().Text($"{funcionario.quantidadeVendas}");
+                        tabela.Cell().Text($"{funcionario.total:C2}").AlignRight(); ;
+                        pos++;
+                    }
+                });
+               
+            });
+        }
+
+        private void demonstrativo(IContainer conteudo, List<Venda> listaDeVenda)
+        {
+            decimal totalVendido = listaDeVenda.Sum(venda => venda.total);
+            conteudo.Column(coluna =>
+            {
+                coluna.Item()
+                .Background(Colors.BlueGrey.Darken1)
+                .Padding(8)
+                .Border(0.5f, Colors.BlueGrey.Darken2)
+                .DefaultTextStyle(e => e.FontColor(Colors.White))
+                .Text("DEMONSTRATIVO DE VENDAS (DRE)");
+
+                coluna.Item().Row(linha =>
+                {
+                    linha.RelativeItem().Text($"Faturamento:").FontSize(16);
+                    linha.RelativeItem().Text($"{totalVendido:c2}").AlignRight().FontSize(16);
+                });
+            });
+        }
+
+        public Document gerarRelatorioMensal(List<Venda> listaDeVendas)
+
+        {
+
+            DateTime data = DateTime.Now;
+            DateTime dataInicial = listaDeVendas.Min(venda => venda.data);
+            DateTime dataFinal = listaDeVendas.Max(venda => venda.data);
+
+            // criando o documento
+
+            var documento = Document.Create(conteudo => {
+
+                conteudo.Page(pagina =>
+
+                {
+
+                    pagina.Size(PageSizes.A4);
+
+                    pagina.Margin(10);
+
+                    pagina.DefaultTextStyle(estilo => estilo.FontSize(12));
+                    //cabeçalho
+                    pagina.Header().Column(coluna =>
+
+                    {
+
+                        coluna.Item().Text("Relatório Mensal").AlignCenter().FontSize(18);
+
+                        coluna.Item().Text("Mercadinho da Esquina");
+
+                        coluna.Item().Text($"Período: {dataInicial:dd/MM/yyy} a {dataFinal:dd/MM/yyyy}");
+
+                        coluna.Item().LineHorizontal(1f);
+
+                    });
+
+                    // conteúdo principal
+
+                    pagina.Content().Column(coluna =>
+
+                    {
+                        //resumo
+                        coluna.Item().Element(conteudo =>resumo (conteudo, listaDeVendas));
+
+                        //RANKING FUNCIONARIO
+                        coluna.Item().Element(conteudo => rankFuncionario(conteudo, listaDeVendas));
+
+                        //DEMONSTRATIVO
+                        coluna.Item().Element(conteudo => demonstrativo(conteudo, listaDeVendas));
+
+                    });
+                    //rodapé
+                    pagina.Footer().Column(coluna =>
+
+                    {
+
+                        coluna.Item().LineHorizontal(1f);
+
+                        coluna.Item().Row(linha =>
+
+                        {
+
+                            linha.RelativeItem().Text($"Gerado em: {data:dd/MM/yyyy}");
+
+                            linha.RelativeItem().AlignRight().Text(texto =>
+
+                            {
+
+                                texto.Span("Pagina ");
+
+                                texto.CurrentPageNumber();
+
+                                texto.Span(" de ");
+
+                                texto.TotalPages();
+
+                            });
+
+                        });
+
+                    });
+
+
+                });
+
+            });
+
+            return documento;
+
+        }
+
+
+
+
         public void salvarPdf(Document documento)
         {
             // var dialogo = new SaveFileDialog

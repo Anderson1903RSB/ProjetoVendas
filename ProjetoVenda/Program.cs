@@ -15,7 +15,7 @@ namespace ProjetoVenda
             QuestPDF.Settings.License = LicenseType.Community;
             
             ApplicationConfiguration.Initialize();
-            //Relatorio relatorio = new Relatorio();
+            Relatorio relatorio = new Relatorio();
             //List<Item> itens = new List<Item>();
             //itens.Add(
             //    new Item
@@ -31,6 +31,11 @@ namespace ProjetoVenda
             //Application.Run(new frmLogin());
             //Relatorio relatorio = new Relatorio();
             //relatorio.salvarPdf();
+            VendaControle vendaControle = new VendaControle();
+            List<Venda> lista = vendaControle.listarVendaMes(11, 2026);
+            var documento = relatorio.gerarRelatorioMensal(lista);
+            relatorio.salvarPdf(documento);
+
 
             while (true) 
             {
